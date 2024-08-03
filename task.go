@@ -232,7 +232,7 @@ func (task *Task) saveTile(tile Tile) error {
 
 // tileFetcher 瓦片加载器
 func (task *Task) tileFetcher(mt maptile.Tile, url string) {
-	start := time.Now()
+	//start := time.Now()
 	defer task.tileWG.Done() //结束该瓦片请求
 	defer func() {
 		<-task.workers //workers完成并清退
@@ -314,8 +314,8 @@ func (task *Task) tileFetcher(mt maptile.Tile, url string) {
 		task.saveTile(td)
 	}
 
-	cost := time.Since(start).Milliseconds()
-	log.Infof("tile(z:%d, x:%d, y:%d), %dms , %.2f kb, %s ...\n", mt.Z, mt.X, mt.Y, cost, float32(len(body))/1024.0, tile)
+	//cost := time.Since(start).Milliseconds()
+	//log.Infof("tile(z:%d, x:%d, y:%d), %dms , %.2f kb, %s ...\n", mt.Z, mt.X, mt.Y, cost, float32(len(body))/1024.0, tile)
 }
 
 // DownloadZoom 下载指定层级
