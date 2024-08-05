@@ -1,0 +1,17 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+[101.5,32.83333333],[101.75,32.83333333],[101.75,33],[101.5,33],[101.5,32.83333333]
+          ]
+        ]
+      }
+    }
+  ]
+}

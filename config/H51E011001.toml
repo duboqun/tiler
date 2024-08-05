@@ -1,0 +1,35 @@
+[app]
+	version = "v 0.1.0"
+	title = "MapCloud Tiler"
+[output]
+	#can be mbtiles/file
+	format ="mbtiles"
+	#the output dir
+	directory ="output"
+[task]
+	#number of fetchers
+	workers = 2500
+	#number of savers
+	savepipe = 1
+	#min request interval, a speed limit, unit millisecond
+	timedelay = 1
+
+[tm]
+	#name for mbtiles
+	name = "H51E011001"
+	#max and min level for mbtiles
+	min = 12
+	max = 19
+	#can be pbf/png/jpg
+	format = "jpg"
+	#can be xyz/tm
+	schema = "xyz"
+	#天地图影像,img_w  影像标注层,cia_w  天地图矢量(地形图),vec_w  矢量标注层,cva_w
+	url = "https://t3.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILECOL={x}&TILEROW={y}&TILEMATRIX={z}&tk=75f0434f240669f4a2df6359275146d2"
+
+	
+#lrs can set diff boundaries for diff levels
+  [[lrs]]
+  	min = 12
+  	max = 19
+  	geojson = "./geojson/H51E011001.geojson"
