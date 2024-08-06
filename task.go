@@ -256,6 +256,8 @@ func (task *Task) tileFetcher(mt maptile.Tile, url string) {
 		maxY := int(math.Pow(2, float64(t.Z))) - 1
 		url = strings.Replace(url, "{-y}", strconv.Itoa(maxY-int(t.Y)), -1)
 		url = strings.Replace(url, "{z}", strconv.Itoa(int(t.Z)), -1)
+        rand.Seed(time.Now().UnixNano())
+        url = strings.Replace(url, "t3.tianditu.gov.cn", fmt.Sprintf("t%d.tianditu.gov.cn", rand.Intn(8)), -1)
 		return url
 	}
 	tile := prep(mt, url)
